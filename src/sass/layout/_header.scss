@@ -1,0 +1,62 @@
+header {
+  position: relative;
+  padding-top: 1.4375rem;
+  padding-bottom: 3.25rem;
+  background: url("../img/background-mobile.png") no-repeat center;
+  //   .header__bg-shape {
+  //     position: absolute;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     width: 107px;
+  //     height: 90px;
+  //     top: 0px;
+  //     left: 25%;
+  //     border-radius: 100%;
+  //     background: linear-gradient(
+  //       136deg,
+  //       #c4c4c4 0%,
+  //       rgba(196, 196, 196, 0) 100%
+  //     );
+  //     backdrop-filter: blur(30px);
+  //     z-index: 0;
+  //   }
+  .header__logo {
+    position: relative;
+    z-index: 1;
+    top: 0;
+  }
+  .header__title {
+    margin-top: 1.5625rem;
+    margin-bottom: 25px;
+    font-weight: 900;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: #dc56c5;
+  }
+  .input__header {
+    width: 16.88rem;
+    height: 2.5rem;
+    padding-left: 30px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #939393;
+    border-radius: 1.25rem;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+  }
+  .header__container-input {
+    position: relative;
+    &:last-child {
+      margin-top: 25px;
+    }
+    .container__input-icon {
+      position: absolute;
+      top: 14px;
+      left: 14.25rem;
+    }
+  }
+}
