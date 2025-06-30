@@ -9,3 +9,9 @@ footer {
   text-align: center;
   color: #939393;
 }
+
+@media screen and (min-width: 768px) {
+  .footer__link {
+    font-size: 1rem;
+  }
+}

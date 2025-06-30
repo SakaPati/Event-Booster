@@ -60,3 +60,27 @@ header {
     }
   }
 }
+@media screen and (min-width: 768px) {
+  header {
+    background: url("../img/background-tablet.png") no-repeat center;
+
+    padding-top: 2.5rem;
+    padding-bottom: 7.6875rem;
+    .header__logo {
+      width: 6.25rem;
+      height: 3.125rem;
+    }
+    .header__title {
+      font-size: 1.88rem;
+      width: 22.125rem;
+      margin: auto;
+    }
+    .header__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .searching {
+      margin-top: 1.6875rem;
+    }
+  }
+}
