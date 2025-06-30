@@ -197,10 +197,13 @@ body {
   width: 18.4375rem;
   padding: 0 0.9375rem;
   margin: 0 auto;
-  z-index: 0;
-  overflow: hidden;
 }
 
+@media screen and (min-width: 768px) {
+  .container {
+    width: 38.125rem;
+  }
+}
 header {
   position: relative;
   padding-top: 1.4375rem;
@@ -247,6 +250,29 @@ header .header__container-input .container__input-icon {
   left: 14.25rem;
 }
 
+@media screen and (min-width: 768px) {
+  header {
+    background: url("../img/background-tablet.png") no-repeat center;
+    padding-top: 2.5rem;
+    padding-bottom: 7.6875rem;
+  }
+  header .header__logo {
+    width: 6.25rem;
+    height: 3.125rem;
+  }
+  header .header__title {
+    font-size: 1.88rem;
+    width: 22.125rem;
+    margin: auto;
+  }
+  header .header__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  header .searching {
+    margin-top: 1.6875rem;
+  }
+}
 .hero {
   padding-bottom: 3.75rem;
 }
@@ -258,8 +284,23 @@ header .header__container-input .container__input-icon {
        column-gap: 14px;
 }
 .hero .hero__list .hero__list-item {
+  position: relative;
   flex-basis: calc((100% - 14px) / 2);
   text-align: center;
+}
+.hero .hero__list .hero__list-item .list__item-img {
+  position: relative;
+  z-index: 1;
+}
+.hero .hero__list .hero__list-item .list__item-border {
+  position: absolute;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  border-radius: 3.12rem 0;
+  width: 6.75rem;
+  height: 6.31rem;
+  z-index: 10;
+  top: -0.625rem;
+  right: -10px;
 }
 .hero .hero__list .hero__list-item .list__item-title {
   margin-top: 5px;
@@ -284,6 +325,37 @@ header .header__container-input .container__input-icon {
   color: #fff;
 }
 
+@media screen and (min-width: 48rem) {
+  .hero .hero__list {
+    position: relative;
+    z-index: 1;
+    row-gap: 2.8125rem;
+    -moz-column-gap: 0.8125rem;
+         column-gap: 0.8125rem;
+  }
+  .hero .hero__list .hero__list-item {
+    position: relative;
+    flex-basis: calc((100% - 26px) / 3);
+  }
+  .hero .hero__list .hero__list-item .list__item-border {
+    position: absolute;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 3.12rem 0;
+    width: 9.56rem;
+    height: 8.94rem;
+    z-index: 10;
+    top: -4.375rem;
+  }
+  .hero .hero__list .hero__list-item .list__item-title {
+    font-size: 1rem;
+  }
+  .hero .hero__list .hero__list-item .list__item-time {
+    font-size: 1rem;
+  }
+  .hero .hero__list .hero__list-item .list__item-address {
+    font-size: 0.88rem;
+  }
+}
 footer {
   padding-top: 60px;
   padding-bottom: 27px;
@@ -295,4 +367,10 @@ footer {
   font-size: 0.88rem;
   text-align: center;
   color: #939393;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__link {
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=main.css.map */
