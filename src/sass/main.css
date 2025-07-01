@@ -127,13 +127,6 @@ body {
 }
 
 /**
-   Нормализация высоты элемента ссылки при его инспектировании в DevTools
-  */
-a:where([class]) {
-  display: inline-flex;
-}
-
-/**
    Курсор-рука при наведении на элемент
   */
 button,
@@ -202,6 +195,11 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     width: 38.125rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 59.125rem;
   }
 }
 header {
@@ -273,6 +271,19 @@ header .header__container-input .container__input-icon {
     margin-top: 1.6875rem;
   }
 }
+@media screen and (min-width: 1200px) {
+  header {
+    background: url("../img/background-desktop.png") no-repeat center;
+  }
+  header .header__logo {
+    width: 8.5625rem;
+    height: 4.1875rem;
+  }
+  header .header__title {
+    font-size: 3.12rem;
+    width: 36.75rem;
+  }
+}
 .hero {
   padding-bottom: 3.75rem;
 }
@@ -324,6 +335,9 @@ header .header__container-input .container__input-icon {
   font-size: 0.75rem;
   color: #fff;
 }
+.hero .hero__list .tablet-v {
+  display: none;
+}
 
 @media screen and (min-width: 48rem) {
   .hero .hero__list {
@@ -338,13 +352,10 @@ header .header__container-input .container__input-icon {
     flex-basis: calc((100% - 26px) / 3);
   }
   .hero .hero__list .hero__list-item .list__item-border {
-    position: absolute;
     border: 1px solid rgba(220, 86, 197, 0.3);
     border-radius: 3.12rem 0;
     width: 9.56rem;
     height: 8.94rem;
-    z-index: 10;
-    top: -4.375rem;
   }
   .hero .hero__list .hero__list-item .list__item-title {
     font-size: 1rem;
@@ -355,10 +366,37 @@ header .header__container-input .container__input-icon {
   .hero .hero__list .hero__list-item .list__item-address {
     font-size: 0.88rem;
   }
+  .hero .hero__list .tablet-v {
+    display: block;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .hero .hero__list {
+    row-gap: 3.125rem;
+    -moz-column-gap: 3.4375rem;
+         column-gap: 3.4375rem;
+  }
+  .hero .hero__list .hero__list-item {
+    flex-basis: calc((100% - 168px) / 4);
+  }
+  .hero .hero__list .hero__list-item .list__item-border {
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 3.12rem 0;
+    width: 9.56rem;
+    height: 8.94rem;
+  }
+  .hero .hero__list .tablet-v {
+    display: none;
+  }
 }
 footer {
   padding-top: 60px;
   padding-bottom: 27px;
+}
+
+footer > .container {
+  display: flex;
+  justify-content: center;
 }
 
 .footer__link {
@@ -367,6 +405,9 @@ footer {
   font-size: 0.88rem;
   text-align: center;
   color: #939393;
+}
+.footer__link .heart {
+  color: red;
 }
 
 @media screen and (min-width: 768px) {
