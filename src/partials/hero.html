@@ -619,9 +619,32 @@
           Palace of Ukraine
         </address>
       </li>
+      <li class="hero__list-item tablet-v">
+        <picture>
+          <source
+            srcset="/img/lp-tablet@1x.png 1x, /img/lp-tablet@2x.png 2x"
+            media="(min-width: 768px)"
+          />
+          <source
+            srcset="/img/lp-mobile@1x.png 1x, /img/lp-mobile@2x.png 2x"
+            media="(max-width: 767px)"
+          />
+          <img src="/img/lp-mobile@1x.png" alt="LP" class="list__item-img" />
+        </picture>
+        <div class="list__item-border"></div>
+
+        <h3 class="list__item-title">LP</h3>
+        <time datetime="2021-07-27" class="list__item-time">2021-07-27</time>
+        <address class="list__item-address">
+          <svg width="6" height="9">
+            <use href="./icons/symbol-defs.svg#icon-location"></use>
+          </svg>
+          Palace of Ukraine
+        </address>
+      </li>
     </ul>
 
-    <ul class="hero__page-number"></ul>
     <!-- Тут типо нумерация страниц будет -->
+    <ul class="hero__page-number"></ul>
   </div>
 </section>
