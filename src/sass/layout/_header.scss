@@ -33,16 +33,18 @@ header {
     font-size: 1.125rem;
     text-transform: uppercase;
     text-align: center;
-    color: #dc56c5;
+    color: $title-color;
   }
   .input__header {
     width: 16.88rem;
     height: 2.5rem;
+
     padding-left: 30px;
     font-family: $font-family;
     font-weight: 400;
     font-size: 1rem;
     color: #939393;
+
     border-radius: 1.25rem;
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.2);
