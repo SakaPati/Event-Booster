@@ -10,19 +10,26 @@
 
       flex-basis: calc((100% - 1 * 14px) / 2);
       text-align: center;
+
+      &:hover {
+        cursor: pointer;
+      }
       .list__item-img {
         position: relative;
         z-index: 1;
       }
       .list__item-border {
         position: absolute;
-        border: 1px solid rgba(220, 86, 197, 0.3);
-        border-radius: 3.12rem 0;
-        width: 6.75rem;
-        height: 6.31rem;
-        z-index: 10;
         top: -0.625rem;
         right: -10px;
+
+        width: 6.75rem;
+        height: 6.31rem;
+
+        border: 1px solid rgba(220, 86, 197, 0.3);
+        border-radius: 3.12rem 0;
+
+        z-index: 10;
       }
       .list__item-title {
         margin-top: 5px;
@@ -31,7 +38,8 @@
         font-weight: 700;
         font-size: 0.88rem;
         text-align: center;
-        color: #dc56c5;
+
+        color: $title-color;
       }
       .eurovision {
         font-size: 1rem;
@@ -40,12 +48,12 @@
         margin-bottom: 5px;
         font-size: 0.88rem;
         text-align: center;
-        color: #fff;
+        color: $text-color;
       }
       .list__item-address {
         font-weight: 600;
         font-size: 0.75rem;
-        color: #fff;
+        color: $text-color;
       }
     }
     .tablet-v {
@@ -66,8 +74,6 @@
         flex-basis: calc((100% - 2 * 13px) / 3);
 
         .list__item-border {
-          border: 1px solid rgba(220, 86, 197, 0.3);
-          border-radius: 3.12rem 0;
           width: 9.56rem;
           height: 8.94rem;
         }
@@ -98,8 +104,6 @@
       .hero__list-item {
         flex-basis: calc((100% - 3 * 56px) / 4);
         .list__item-border {
-          border: 1px solid rgba(220, 86, 197, 0.3);
-          border-radius: 3.12rem 0;
           width: 9.56rem;
           height: 8.94rem;
         }

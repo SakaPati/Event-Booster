@@ -299,6 +299,9 @@ header .header__container-input .container__input-icon {
   flex-basis: calc((100% - 14px) / 2);
   text-align: center;
 }
+.hero .hero__list .hero__list-item:hover {
+  cursor: pointer;
+}
 .hero .hero__list .hero__list-item .list__item-img {
   position: relative;
   z-index: 1;
