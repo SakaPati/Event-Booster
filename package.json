@@ -24,7 +24,7 @@
   "dependencies": {
     "parcel-bundler": "^1.12.5",
     "posthtml-include": "^2.0.1",
-    "sass": "^1.89.2"
+    "sass": "^1.58.3"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
