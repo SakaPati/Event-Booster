@@ -308,13 +308,13 @@ header .header__container-input .container__input-icon {
 }
 .hero .hero__list .hero__list-item .list__item-border {
   position: absolute;
-  border: 1px solid rgba(220, 86, 197, 0.3);
-  border-radius: 3.12rem 0;
-  width: 6.75rem;
-  height: 6.31rem;
-  z-index: 10;
   top: -0.625rem;
   right: -10px;
+  width: 6.75rem;
+  height: 6.31rem;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  border-radius: 3.12rem 0;
+  z-index: 10;
 }
 .hero .hero__list .hero__list-item .list__item-title {
   margin-top: 5px;
@@ -355,8 +355,6 @@ header .header__container-input .container__input-icon {
     flex-basis: calc((100% - 26px) / 3);
   }
   .hero .hero__list .hero__list-item .list__item-border {
-    border: 1px solid rgba(220, 86, 197, 0.3);
-    border-radius: 3.12rem 0;
     width: 9.56rem;
     height: 8.94rem;
   }
@@ -383,8 +381,6 @@ header .header__container-input .container__input-icon {
     flex-basis: calc((100% - 168px) / 4);
   }
   .hero .hero__list .hero__list-item .list__item-border {
-    border: 1px solid rgba(220, 86, 197, 0.3);
-    border-radius: 3.12rem 0;
     width: 9.56rem;
     height: 8.94rem;
   }

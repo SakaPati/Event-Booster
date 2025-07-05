@@ -6,7 +6,8 @@
   "scripts": {
     "start": "parcel src/*.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "build": "parcel build src/*.html --public-url /Event-Booster/"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/SakaPati/Event-Booster/issues"
   },
-  "homepage": "https://github.com/SakaPati/Event-Booster#readme",
+  "homepage": "https://sakapati.github.io/Event-Booster/",
   "dependencies": {
     "parcel-bundler": "^1.12.5",
     "posthtml-include": "^2.0.1",
