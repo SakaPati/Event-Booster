@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/SakaPati/Event-Booster/issues"
   },
-  "homepage": "https://sakapati.github.io/Event-Booster/",
+  "homepage": "https://github.com/SakaPati/Event-Booster",
   "dependencies": {
     "parcel-bundler": "^1.12.5",
     "posthtml-include": "^2.0.1",
