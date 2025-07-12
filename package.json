@@ -2,7 +2,7 @@
   "name": "event-booster",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "default": "main.js",
   "scripts": {
     "start": "parcel src/*.html",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,6 +25,7 @@
     "handlebars": "^4.7.8",
     "parcel-bundler": "^1.12.5",
     "parcel-transformer-hbs": "^1.0.4",
+    "posthtml": "^0.16.6",
     "posthtml-include": "^2.0.1",
     "sass": "^1.89.2"
   },
