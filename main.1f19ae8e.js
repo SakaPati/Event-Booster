@@ -117,62 +117,70 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+})({"js/events.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.inputSearching = inputSearching;
+var refs = {
+  inputEvent: document.querySelector("#event-searching"),
+  countrySearch: document.querySelector(".choose__input")
+};
+var API_KEY = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw&countyCode=US&size=10&page=1";
+refs.inputEvent.addEventListener("input", inputSearching);
+function inputSearching() {
+  var inputValue = refs.inputEvent.value;
+  fetch(API_KEY).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    // Массив в котором получаю данные по ивентам(название, локация)
+    var array = data._embedded.events;
+    var name;
+    var placement;
+    var img;
+    var dateTime;
+    array.forEach(function (element) {
+      // Присваивание имени и локации
+      name = element.name;
+      placement = element.dates.timezone;
+
+      // Поиск ивентов по названию
+      if (name.toLowerCase().includes(inputValue.toLowerCase())) {
+        console.log(name);
+      } else {
+        return false;
       }
-    }
-    cssTimeout = null;
-  }, 50);
+
+      // получения массива фото(ссылки)
+      var elImg = element.images;
+
+      // Перебираю массив и получию линки на фото
+      elImg.forEach(function (element) {
+        // поиск нужного линка по ширине и высоте
+        if (element.width == 305 && element.height == 225) {
+          img = element.url;
+          console.log(element.url);
+        }
+      });
+
+      // даты
+      dateTime = element.dates.start.localDate;
+    });
+    // Объект для шаблана .hbs
+    var items = {
+      name: name,
+      placement: placement,
+      photo: img
+    };
+  });
 }
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\img\\background-mobile.png":[["background-mobile.16b2f491.png","img/background-mobile.png"],"img/background-mobile.png"],"./..\\img\\background-tablet.png":[["background-tablet.9c33d129.png","img/background-tablet.png"],"img/background-tablet.png"],"./..\\img\\background-desktop.png":[["background-desktop.20fb7993.png","img/background-desktop.png"],"img/background-desktop.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"main.js":[function(require,module,exports) {
+"use strict";
+
+var _events = require("./js/events");
+},{"./js/events":"js/events.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -197,7 +205,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60923" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52207" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
@@ -341,5 +349,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/main.07544d9b.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
+//# sourceMappingURL=/main.1f19ae8e.js.map

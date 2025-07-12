@@ -1,0 +1,418 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+   Упрощаем работу с изображениями и видео
+  */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  height: 100%;
+  /**
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
+  scrollbar-gutter: stable;
+}
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  min-height: 100%;
+  /**
+     Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+/**
+   Курсор-рука при наведении на элемент
+  */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут fill со значением 'none' или начинается с 'url')
+  */
+:where([fill]:not([fill=none], [fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут stroke со значением 'none')
+  */
+:where([stroke]:not([stroke=none], [stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #0e0e0e;
+}
+
+.container {
+  width: 18.4375rem;
+  padding: 0 0.9375rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 38.125rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 59.125rem;
+  }
+}
+header {
+  position: relative;
+  padding-top: 1.4375rem;
+  padding-bottom: 3.25rem;
+  background: url("/background-mobile.16b2f491.png") no-repeat center;
+}
+header .header__logo {
+  position: relative;
+  z-index: 1;
+  top: 0;
+}
+header .header__title {
+  margin-top: 1.5625rem;
+  margin-bottom: 25px;
+  font-weight: 900;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #dc56c5;
+}
+header .input__header {
+  width: 16.88rem;
+  height: 2.5rem;
+  padding-left: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #939393;
+  border-radius: 1.25rem;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+}
+header .header__container-input {
+  position: relative;
+}
+header .header__container-input:last-child {
+  margin-top: 25px;
+}
+header .header__container-input .container__input-icon {
+  position: absolute;
+  top: 14px;
+  left: 14.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    background: url("/background-tablet.9c33d129.png") no-repeat center;
+    padding-top: 2.5rem;
+    padding-bottom: 7.6875rem;
+  }
+  header .header__logo {
+    width: 6.25rem;
+    height: 3.125rem;
+  }
+  header .header__title {
+    font-size: 1.88rem;
+    width: 22.125rem;
+    margin: auto;
+  }
+  header .header__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  header .searching {
+    margin-top: 1.6875rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header {
+    background: url("/background-desktop.20fb7993.png") no-repeat center;
+  }
+  header .header__logo {
+    width: 8.5625rem;
+    height: 4.1875rem;
+  }
+  header .header__title {
+    font-size: 3.12rem;
+    width: 36.75rem;
+  }
+}
+.hero {
+  padding-bottom: 3.75rem;
+}
+.hero .hero__list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  -moz-column-gap: 14px;
+       column-gap: 14px;
+}
+.hero .hero__list .hero__list-item {
+  position: relative;
+  flex-basis: calc((100% - 14px) / 2);
+  text-align: center;
+}
+.hero .hero__list .hero__list-item:hover {
+  cursor: pointer;
+}
+.hero .hero__list .hero__list-item .list__item-img {
+  position: relative;
+  z-index: 1;
+}
+.hero .hero__list .hero__list-item .list__item-border {
+  position: absolute;
+  top: -0.625rem;
+  right: -10px;
+  width: 6.75rem;
+  height: 6.31rem;
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  border-radius: 3.12rem 0;
+  z-index: 10;
+}
+.hero .hero__list .hero__list-item .list__item-title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-align: center;
+  color: #dc56c5;
+}
+.hero .hero__list .hero__list-item .eurovision {
+  font-size: 1rem;
+}
+.hero .hero__list .hero__list-item .list__item-time {
+  margin-bottom: 5px;
+  font-size: 0.88rem;
+  text-align: center;
+  color: #fff;
+}
+.hero .hero__list .hero__list-item .list__item-address {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.hero .hero__list .tablet-v {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .hero .hero__list {
+    position: relative;
+    z-index: 1;
+    row-gap: 2.8125rem;
+    -moz-column-gap: 0.8125rem;
+         column-gap: 0.8125rem;
+  }
+  .hero .hero__list .hero__list-item {
+    position: relative;
+    flex-basis: calc((100% - 26px) / 3);
+  }
+  .hero .hero__list .hero__list-item .list__item-border {
+    width: 9.56rem;
+    height: 8.94rem;
+  }
+  .hero .hero__list .hero__list-item .list__item-title {
+    font-size: 1rem;
+  }
+  .hero .hero__list .hero__list-item .list__item-time {
+    font-size: 1rem;
+  }
+  .hero .hero__list .hero__list-item .list__item-address {
+    font-size: 0.88rem;
+  }
+  .hero .hero__list .tablet-v {
+    display: block;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .hero .hero__list {
+    row-gap: 3.125rem;
+    -moz-column-gap: 3.4375rem;
+         column-gap: 3.4375rem;
+  }
+  .hero .hero__list .hero__list-item {
+    flex-basis: calc((100% - 168px) / 4);
+  }
+  .hero .hero__list .hero__list-item .list__item-border {
+    width: 9.56rem;
+    height: 8.94rem;
+  }
+  .hero .hero__list .tablet-v {
+    display: none;
+  }
+}
+footer {
+  padding-top: 60px;
+  padding-bottom: 27px;
+}
+
+footer > .container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__link {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.88rem;
+  text-align: center;
+  color: #939393;
+}
+.footer__link .heart {
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__link {
+    font-size: 1rem;
+  }
+}
+
+/*# sourceMappingURL=/main.521f9405.css.map */
