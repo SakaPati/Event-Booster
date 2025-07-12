@@ -139,7 +139,7 @@ label {
    (за исключением тех, у которых уже указан
    атрибут fill со значением 'none' или начинается с 'url')
   */
-:where([fill]:not([fill="none"], [fill^="url"])) {
+:where([fill]:not([fill=none], [fill^=url])) {
   fill: currentColor;
 }
 
@@ -148,7 +148,7 @@ label {
    (за исключением тех, у которых уже указан
    атрибут stroke со значением 'none')
   */
-:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+:where([stroke]:not([stroke=none], [stroke^=url])) {
   stroke: currentColor;
 }
 
@@ -206,7 +206,7 @@ header {
   position: relative;
   padding-top: 1.4375rem;
   padding-bottom: 3.25rem;
-  background: url("../src/img/background-mobile.png") no-repeat center;
+  background: url(".../img/background-mobile.png") no-repeat center;
 }
 header .header__logo {
   position: relative;
@@ -232,7 +232,7 @@ header .input__header {
   color: #939393;
   border-radius: 1.25rem;
   -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.2);
   border: none;
 }
@@ -250,7 +250,7 @@ header .header__container-input .container__input-icon {
 
 @media screen and (min-width: 768px) {
   header {
-    background: url("../img/background-tablet.png") no-repeat center;
+    background: url(".../img/background-tablet.png") no-repeat center;
     padding-top: 2.5rem;
     padding-bottom: 7.6875rem;
   }
@@ -273,7 +273,7 @@ header .header__container-input .container__input-icon {
 }
 @media screen and (min-width: 1200px) {
   header {
-    background: url("../img/background-desktop.png") no-repeat center;
+    background: url(".../img/background-desktop.png") no-repeat center;
   }
   header .header__logo {
     width: 8.5625rem;
@@ -292,7 +292,7 @@ header .header__container-input .container__input-icon {
   flex-wrap: wrap;
   row-gap: 30px;
   -moz-column-gap: 14px;
-  column-gap: 14px;
+       column-gap: 14px;
 }
 .hero .hero__list .hero__list-item {
   position: relative;
@@ -348,7 +348,7 @@ header .header__container-input .container__input-icon {
     z-index: 1;
     row-gap: 2.8125rem;
     -moz-column-gap: 0.8125rem;
-    column-gap: 0.8125rem;
+         column-gap: 0.8125rem;
   }
   .hero .hero__list .hero__list-item {
     position: relative;
@@ -375,7 +375,7 @@ header .header__container-input .container__input-icon {
   .hero .hero__list {
     row-gap: 3.125rem;
     -moz-column-gap: 3.4375rem;
-    column-gap: 3.4375rem;
+         column-gap: 3.4375rem;
   }
   .hero .hero__list .hero__list-item {
     flex-basis: calc((100% - 168px) / 4);
@@ -413,4 +413,4 @@ footer > .container {
   .footer__link {
     font-size: 1rem;
   }
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
