@@ -1,6 +1,10 @@
+import Handlebars from "handlebars";
+import { makingTemplate } from "../templates/template.hbs";
+
 const refs = {
   inputEvent: document.querySelector("#event-searching"),
   countrySearch: document.querySelector(".choose__input"),
+  list: document.querySelector(".hero-list"),
 };
 
 const API_KEY = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw&countyCode=US&size=10&page=1`;
@@ -15,10 +19,13 @@ export function inputSearching() {
     .then((data) => {
       // Массив в котором получаю данные по ивентам(название, локация)
       const array = data._embedded.events;
+
       let name;
+
       let placement;
+
       let img;
-      let dateTime;
+
       array.forEach((element) => {
         // Присваивание имени и локации
         name = element.name;
@@ -44,13 +51,16 @@ export function inputSearching() {
         });
 
         // даты
-        dateTime = element.dates.start.localDate;
+        const dateTime = element.dates.start.localDate;
       });
-      // Объект для шаблана .hbs
+
       const items = {
-        name: name,
-        placement: placement,
         photo: img,
+        title: name,
+        time: placement,
       };
+
+      const layout = makingTemplate(items);
+      console.log(layout);
     });
 }
