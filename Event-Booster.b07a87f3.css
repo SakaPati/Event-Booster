@@ -218,7 +218,6 @@ header .header__container-input .container__input-icon {
 }
 
 .hero .hero__list {
-  -moz-column-gap: 14px;
   flex-wrap: wrap;
   gap: 30px 14px;
   display: flex;
@@ -283,7 +282,6 @@ header .header__container-input .container__input-icon {
 @media screen and (width >= 48rem) {
   .hero .hero__list {
     z-index: 1;
-    -moz-column-gap: .8125rem;
     gap: 2.8125rem .8125rem;
     position: relative;
   }
@@ -313,7 +311,6 @@ header .header__container-input .container__input-icon {
 
 @media screen and (width >= 75rem) {
   .hero .hero__list {
-    -moz-column-gap: 3.4375rem;
     gap: 3.125rem 3.4375rem;
   }
 
@@ -358,4 +355,4 @@ footer > .container {
     font-size: 1rem;
   }
 }
-/*# sourceMappingURL=Event-Booster.c87171fe.css.map */
+/*# sourceMappingURL=Event-Booster.b07a87f3.css.map */
