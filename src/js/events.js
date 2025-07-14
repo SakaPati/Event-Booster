@@ -1,5 +1,4 @@
-import Handlebars from "handlebars";
-import { makingTemplate } from "../templates/template.hbs";
+import info__list from "../templates/template.hbs";
 
 const refs = {
   inputEvent: document.querySelector("#event-searching"),
@@ -13,7 +12,11 @@ refs.inputEvent.addEventListener("input", inputSearching);
 
 export function inputSearching() {
   const inputValue = refs.inputEvent.value;
+  let placement;
 
+  let img;
+
+  let dateTime;
   fetch(API_KEY)
     .then((response) => response.json())
     .then((data) => {
@@ -22,21 +25,17 @@ export function inputSearching() {
 
       let name;
 
-      let placement;
-
-      let img;
-
       array.forEach((element) => {
         // Присваивание имени и локации
         name = element.name;
         placement = element.dates.timezone;
 
         // Поиск ивентов по названию
-        if (name.toLowerCase().includes(inputValue.toLowerCase())) {
-          console.log(name);
-        } else {
-          return false;
-        }
+        // if (name.toLowerCase().includes(inputValue.toLowerCase())) {
+        //   console.log(name);
+        // } else {
+        //   return false;
+        // }
 
         // получения массива фото(ссылки)
         const elImg = element.images;
@@ -46,21 +45,24 @@ export function inputSearching() {
           // поиск нужного линка по ширине и высоте
           if (element.width == 305 && element.height == 225) {
             img = element.url;
-            console.log(element.url);
           }
         });
 
         // даты
-        const dateTime = element.dates.start.localDate;
+        dateTime = element.dates.start.localDate;
       });
+
+      console.log(`This is name ${name}`);
+      console.log(`This is address ${placement}`);
+      console.log(`This is img ${img}`);
+      console.log(`This is time: ${dateTime}`);
 
       const items = {
         photo: img,
         title: name,
         time: placement,
       };
-
-      const layout = makingTemplate(items);
-      console.log(layout);
+      console.log(info__list(items));
+      console.log(info__list({ items }));
     });
 }
