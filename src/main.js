@@ -1,2 +1,2 @@
-import { inputSearching } from "./js/events";
-import "./js/selectCountry"
+import "./js/events";
+import "./js/selectCountry";
