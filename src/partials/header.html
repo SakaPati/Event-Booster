@@ -9,7 +9,7 @@
       <div class="header__container-input searching">
         <input
           type="text"
-          class="header__search input__header"
+          class="header__search search__header"
           id="event-searching"
           placeholder="Start searching"
         />
@@ -17,15 +17,15 @@
           <use href="./icons/symbol-defs.svg#icon-search"></use>
         </svg>
       </div>
-      <div class="header__container-input">
-        <input
-          type="text"
-          class="choose__input input__header"
-          placeholder="Choose country"
-        />
-        <svg width="15" height="10" class="container__input-icon">
-          <use href="./icons/symbol-defs.svg#icon-country"></use>
-        </svg>
+      <div class="header__container-input select__contry-container">
+        <button type="button" class="choose__btn search__header">
+          Choose country
+          <svg width="15" height="10" class="container__input-icon">
+            <use href="./icons/symbol-defs.svg#icon-country"></use>
+          </svg>
+        </button>
+
+        <ul class="select__contry" hidden></ul>
       </div>
     </div>
   </div>
