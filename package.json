@@ -2,7 +2,8 @@
   "name": "event-booster",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "default": "main.js",
+  "homepage": "https://github.com/SakaPati/Event-Booster",
   "scripts": {
     "start": "parcel src/*.html",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,15 +21,15 @@
   "bugs": {
     "url": "https://github.com/SakaPati/Event-Booster/issues"
   },
-  "homepage": "https://github.com/SakaPati/Event-Booster",
   "dependencies": {
     "handlebars": "^4.7.8",
     "parcel-bundler": "^1.12.5",
-    "parcel-transformer-hbs": "^1.0.4",
+    "posthtml": "^0.16.6",
     "posthtml-include": "^2.0.1",
     "sass": "^1.89.2"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "parcel-transformer-hbs": "^1.0.4"
   }
 }

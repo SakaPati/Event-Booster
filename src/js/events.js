@@ -1,56 +1,36 @@
-const refs = {
-  inputEvent: document.querySelector("#event-searching"),
-  countrySearch: document.querySelector(".choose__input"),
-};
+document.addEventListener("DOMContentLoaded", () => {
+  const refs = {
+    inputEvent: document.querySelector("#event-searching"),
+    countrySearch: document.querySelector(".choose__input"),
+    list: document.querySelector(".hero__list"),
+  };
 
-const API_KEY = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw&countyCode=US&size=10&page=1`;
+  const API_KEY = `https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw&countyCode=US&size=10&page=1`;
 
-refs.inputEvent.addEventListener("input", inputSearching);
+  // Get template from HTML
+  const templateSource = document.getElementById("my-template").innerHTML;
+  const itemTemplate = Handlebars.compile(templateSource);
 
-export function inputSearching() {
-  const inputValue = refs.inputEvent.value;
+  refs.inputEvent.addEventListener("input", inputSearching);
 
-  fetch(API_KEY)
-    .then((response) => response.json())
-    .then((data) => {
-      // Массив в котором получаю данные по ивентам(название, локация)
-      const array = data._embedded.events;
-      let name;
-      let placement;
-      let img;
-      let dateTime;
-      array.forEach((element) => {
-        // Присваивание имени и локации
-        name = element.name;
-        placement = element.dates.timezone;
-
-        // Поиск ивентов по названию
-        if (name.toLowerCase().includes(inputValue.toLowerCase())) {
-          console.log(name);
-        } else {
-          return false;
-        }
-
-        // получения массива фото(ссылки)
-        const elImg = element.images;
-
-        // Перебираю массив и получию линки на фото
-        elImg.forEach((element) => {
-          // поиск нужного линка по ширине и высоте
-          if (element.width == 305 && element.height == 225) {
-            img = element.url;
-            console.log(element.url);
-          }
+  function inputSearching() {
+    fetch(API_KEY)
+      .then((response) => response.json())
+      .then((data) => {
+        const array = data._embedded.events;
+        const itemsArray = array.map((element) => {
+          const imgObj = element.images.find(
+            (img) => img.width == 305 && img.height == 225
+          );
+          return {
+            img: imgObj ? imgObj.url : "",
+            name: element.name,
+            time: element.dates.timezone,
+            address: element._embedded?.venues?.[0]?.city?.name || "",
+          };
         });
-
-        // даты
-        dateTime = element.dates.start.localDate;
+        const html = itemTemplate({ info__list: itemsArray });
+        refs.list.innerHTML = html;
       });
-      // Объект для шаблана .hbs
-      const items = {
-        name: name,
-        placement: placement,
-        photo: img,
-      };
-    });
-}
+  }
+});
