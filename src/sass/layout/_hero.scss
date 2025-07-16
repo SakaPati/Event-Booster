@@ -60,6 +60,17 @@
       display: none;
     }
   }
+  .error {
+    color: #e11818;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .hidden {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 48rem) {
