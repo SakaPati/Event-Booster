@@ -1,9 +1,9 @@
-@import "abstracts/variables";
-@import "base/reset";
-@import "base/typography";
+@use "abstracts/variables";
+@use "base/reset";
+@use "base/typography";
 
-@import "components/container";
+@use "components/container";
 
-@import "layout/header";
-@import "layout/hero";
-@import "layout/footer";
+@use "layout/header";
+@use "layout/hero";
+@use "layout/footer";
