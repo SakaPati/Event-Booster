@@ -1,3 +1,4 @@
+@use "../abstracts/variables";
 .hero {
   padding-bottom: 3.75rem;
   .hero__list {
@@ -39,7 +40,7 @@
         font-size: 0.88rem;
         text-align: center;
 
-        color: $title-color;
+        color: variables.$title-color;
       }
       .eurovision {
         font-size: 1rem;
@@ -48,17 +49,28 @@
         margin-bottom: 5px;
         font-size: 0.88rem;
         text-align: center;
-        color: $text-color;
+        color: variables.$text-color;
       }
       .list__item-address {
         font-weight: 600;
         font-size: 0.75rem;
-        color: $text-color;
+        color: variables.$text-color;
       }
     }
     .tablet-v {
       display: none;
     }
+  }
+  .error {
+    color: #e11818;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .hidden {
+    display: none;
+  }
+  .active {
+    display: block;
   }
 }
 
