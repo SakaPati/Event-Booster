@@ -11,9 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const BASE_URL = "https://app.ticketmaster.com/discovery/v2/";
   const API_KEY = "apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw";
-  // Get template from HTML
-  const templateSource = document.getElementById("my-template").innerHTML;
-  const itemTemplate = Handlebars.compile(templateSource);
 
   refs.inputEvent.addEventListener("input", inputSearching);
 
@@ -26,26 +23,41 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        try {
-          const array = data._embedded.events;
-          const itemsArray = array.map((element) => {
-            const imgObj = element.images.find(
-              (img) => img.width == 305 && img.height == 225
-            );
-            return {
-              img: imgObj ? imgObj.url : "",
-              name: element.name,
-              time: element.dates.timezone,
-              address: element._embedded?.venues?.[0]?.city?.name || "",
-            };
-          });
-          const html = itemTemplate({ info__list: itemsArray });
-          refs.list.innerHTML = html;
-        } catch {
-          refs.error.classList.remove("hidden");
-          refs.error.classList.add("active");
-          refs.list.innerHTML = "";
-        }
+        const array = data._embedded.events;
+        let dataInfo;
+        const itemsArray = array.map((element) => {
+          const imgObj = element.images.find(
+            (img) => img.width == 305 && img.height == 225
+          );
+          dataInfo = {
+            img: imgObj ? imgObj.url : "",
+            name: element.name,
+            time: element.dates.timezone,
+            address: element._embedded?.venues?.[0]?.city?.name || "",
+          };
+          for (let i = 1; i <= data.page.size; i++) {
+            refs.list.innerHTML = `
+              <ul class="hero__list other">
+              <li class="hero__list-item">
+              <img
+                  src=${dataInfo.img}
+                  class="list__item-img"
+                />
+                <div class="list__item-border"></div>
+              <h3 class="list__item-title eurovision">${dataInfo.name}</h3>
+              <time datetime="2021-05-13" class="list__item-time">${dataInfo.time}</time>
+              <address class="list__item-address">
+                <svg width="6" height="9">
+                  <use href="./icons/symbol-defs.svg#icon-location"></use>
+                </svg>
+                ${dataInfo.address}
+              </address>
+              </li>
+              </ul>
+              `;
+            console.log("hi");
+          }
+        });
       });
   }
 });
