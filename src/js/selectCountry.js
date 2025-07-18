@@ -101,14 +101,16 @@ function openSelectContry() {
 }
 // Функция для получения данных
 function selectContry(event) {
-  codeContry = event.target.dataset.value;
-  console.log(codeContry);
+  const codeContry = event.target.dataset.value;
+  const nameContry = event.target.textContent
+
   fetch(
     `${BASE_URL}events.json?countryCode=${codeContry}&classificationName=music&${API_KEY}`
   )
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => data);
 
+  btnContry.textContent = nameContry
   openSelectContry();
 }
 // Функция для отрисовки страны
