@@ -6,10 +6,8 @@
     <title>Event-Booster</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet">
-    <link rel="stylesheet" href="/index.min.c673845f.css">
-    <!-- <link rel="stylesheet" href="./sass/index.scss" /> -->
-    <!-- <link rel="stylesheet" href="./css/main.css" /> -->
-  <script src="/index.min.c673845f.js"></script></head>
+    <link rel="stylesheet" href="/sass.0a7c4b30.css">
+  <script src="/sass.0a7c4b30.js"></script></head>
   <body>
     <header class="header">
   <!-- <div class="header__bg-shape"></div> -->
@@ -20,16 +18,20 @@
     <h1 class="header__title">Find best events around the world</h1>
     <div class="header__wrapper">
       <div class="header__container-input searching">
-        <input type="text" class="header__search input__header" id="event-searching" placeholder="Start searching">
+        <input type="text" class="header__search search__header" id="event-searching" placeholder="Start searching">
         <svg width="12" height="12" class="container__input-icon">
           <use href="/symbol-defs.de9c78db.svg#icon-search"></use>
         </svg>
       </div>
-      <div class="header__container-input">
-        <input type="text" class="choose__input input__header" placeholder="Choose country">
-        <svg width="15" height="10" class="container__input-icon">
-          <use href="/symbol-defs.de9c78db.svg#icon-country"></use>
-        </svg>
+      <div class="header__container-input select__contry-container">
+        <button type="button" class="choose__btn search__header">
+          Choose country
+          <svg width="15" height="10" class="container__input-icon">
+            <use href="/symbol-defs.de9c78db.svg#icon-country"></use>
+          </svg>
+        </button>
+
+        <ul class="select__contry" hidden=""></ul>
       </div>
     </div>
   </div>
@@ -400,7 +402,31 @@
         </address>
       </li>
     </ul>
-
+    <h2 class="error hidden" id="hero__error">
+      Sorry this country hasn't any events.Pleas reload page for continue work
+    </h2>
+    <script id="my-template" type="text/x-handlebars-template">
+      <ul class="hero__list other">
+        {{#each info__list}}
+          <li class="hero__list-item">
+            <img
+              src="{{img}}"
+              alt="Eurovision 2021 finals"
+              class="list__item-img"
+            />
+            <div class="list__item-border"></div>
+            <h3 class="list__item-title eurovision">{{name}}</h3>
+            <time datetime="2021-05-13" class="list__item-time">{{time}}</time>
+            <address class="list__item-address">
+              <svg width="6" height="9">
+                <use href="../icons/symbol-defs.svg#icon-location"></use>
+              </svg>
+              {{address}}
+            </address>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
     <!-- Тут типо нумерация страниц будет -->
     <ul class="hero__page-number"></ul>
   </div>

@@ -117,83 +117,354 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"templates/template.hbs":[function(require,module,exports) {
-module.exports = "/template.4c127c0f.hbs";
-},{}],"js/events.js":[function(require,module,exports) {
+})({"js/selectCountry.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.inputSearching = inputSearching;
-var _template = _interopRequireDefault(require("../templates/template.hbs"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-var refs = {
-  inputEvent: document.querySelector("#event-searching"),
-  countrySearch: document.querySelector(".choose__input"),
-  list: document.querySelector(".hero-list")
-};
-var API_KEY = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw&countyCode=US&size=10&page=1";
-refs.inputEvent.addEventListener("input", inputSearching);
-function inputSearching() {
-  var inputValue = refs.inputEvent.value;
-  var placement;
-  var img;
-  var dateTime;
-  fetch(API_KEY).then(function (response) {
+exports.countries = exports.codeContry = void 0;
+var countries = exports.countries = [{
+  value: "AD",
+  label: "Andorra"
+}, {
+  value: "AI",
+  label: "Anguilla"
+}, {
+  value: "AR",
+  label: "Argentina"
+}, {
+  value: "AU",
+  label: "Australia"
+}, {
+  value: "AT",
+  label: "Austria"
+}, {
+  value: "AZ",
+  label: "Azerbaijan"
+}, {
+  value: "BS",
+  label: "Bahamas"
+}, {
+  value: "BH",
+  label: "Bahrain"
+}, {
+  value: "BB",
+  label: "Barbados"
+}, {
+  value: "BE",
+  label: "Belgium"
+}, {
+  value: "BM",
+  label: "Bermuda"
+}, {
+  value: "BR",
+  label: "Brazil"
+}, {
+  value: "BG",
+  label: "Bulgaria"
+}, {
+  value: "CA",
+  label: "Canada"
+}, {
+  value: "CL",
+  label: "Chile"
+}, {
+  value: "CN",
+  label: "China"
+}, {
+  value: "CO",
+  label: "Colombia"
+}, {
+  value: "CR",
+  label: "Costa Rica"
+}, {
+  value: "HR",
+  label: "Croatia"
+}, {
+  value: "CY",
+  label: "Cyprus"
+}, {
+  value: "CZ",
+  label: "Czech Republic"
+}, {
+  value: "DK",
+  label: "Denmark"
+}, {
+  value: "DO",
+  label: "Dominican Republic"
+}, {
+  value: "EC",
+  label: "Ecuador"
+}, {
+  value: "EE",
+  label: "Estonia"
+}, {
+  value: "FO",
+  label: "Faroe Islands"
+}, {
+  value: "FI",
+  label: "Finland"
+}, {
+  value: "FR",
+  label: "France"
+}, {
+  value: "GE",
+  label: "Georgia"
+}, {
+  value: "DE",
+  label: "Germany"
+}, {
+  value: "GH",
+  label: "Ghana"
+}, {
+  value: "GI",
+  label: "Gibraltar"
+}, {
+  value: "GB",
+  label: "Great Britain"
+}, {
+  value: "GR",
+  label: "Greece"
+}, {
+  value: "HK",
+  label: "Hong Kong"
+}, {
+  value: "HU",
+  label: "Hungary"
+}, {
+  value: "IS",
+  label: "Iceland"
+}, {
+  value: "IN",
+  label: "India"
+}, {
+  value: "IE",
+  label: "Ireland"
+}, {
+  value: "IL",
+  label: "Israel"
+}, {
+  value: "IT",
+  label: "Italy"
+}, {
+  value: "JM",
+  label: "Jamaica"
+}, {
+  value: "JP",
+  label: "Japan"
+}, {
+  value: "KR",
+  label: "Korea, Republic of"
+}, {
+  value: "LV",
+  label: "Latvia"
+}, {
+  value: "LB",
+  label: "Lebanon"
+}, {
+  value: "LT",
+  label: "Lithuania"
+}, {
+  value: "LU",
+  label: "Luxembourg"
+}, {
+  value: "MY",
+  label: "Malaysia"
+}, {
+  value: "MT",
+  label: "Malta"
+}, {
+  value: "MX",
+  label: "Mexico"
+}, {
+  value: "MC",
+  label: "Monaco"
+}, {
+  value: "ME",
+  label: "Montenegro"
+}, {
+  value: "MA",
+  label: "Morocco"
+}, {
+  value: "NL",
+  label: "Netherlands"
+}, {
+  value: "AN",
+  label: "Netherlands Antilles"
+}, {
+  value: "NZ",
+  label: "New Zealand"
+}, {
+  value: "ND",
+  label: "Northern Ireland"
+}, {
+  value: "NO",
+  label: "Norway"
+}, {
+  value: "PE",
+  label: "Peru"
+}, {
+  value: "PL",
+  label: "Poland"
+}, {
+  value: "PT",
+  label: "Portugal"
+}, {
+  value: "RO",
+  label: "Romania"
+}, {
+  value: "RU",
+  label: "Russian Federation"
+}, {
+  value: "LC",
+  label: "Saint Lucia"
+}, {
+  value: "SA",
+  label: "Saudi Arabia"
+}, {
+  value: "RS",
+  label: "Serbia"
+}, {
+  value: "SG",
+  label: "Singapore"
+}, {
+  value: "SK",
+  label: "Slovakia"
+}, {
+  value: "SI",
+  label: "Slovenia"
+}, {
+  value: "ZA",
+  label: "South Africa"
+}, {
+  value: "ES",
+  label: "Spain"
+}, {
+  value: "SE",
+  label: "Sweden"
+}, {
+  value: "CH",
+  label: "Switzerland"
+}, {
+  value: "TW",
+  label: "Taiwan"
+}, {
+  value: "TH",
+  label: "Thailand"
+}, {
+  value: "TT",
+  label: "Trinidad and Tobago"
+}, {
+  value: "TR",
+  label: "Turkey"
+}, {
+  value: "UA",
+  label: "Ukraine"
+}, {
+  value: "AE",
+  label: "United Arab Emirates"
+}, {
+  value: "US",
+  label: "United States"
+}, {
+  value: "UY",
+  label: "Uruguay"
+}, {
+  value: "VE",
+  label: "Venezuela"
+}];
+var BASE_URL = "https://app.ticketmaster.com/discovery/v2/";
+var API_KEY = "apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw";
+var btnContry = document.querySelector(".choose__btn");
+var contryList = document.querySelector(".select__contry");
+var icon = document.querySelectorAll(".container__input-icon");
+btnContry.addEventListener("click", openSelectContry);
+contryList.addEventListener("click", selectContry);
+// Функция для открытия списка страны
+var codeContry = exports.codeContry = null;
+function openSelectContry() {
+  icon[1].classList.toggle("rotate");
+  contryList.toggleAttribute("hidden");
+}
+// Функция для получения данных
+function selectContry(event) {
+  exports.codeContry = codeContry = event.target.dataset.value;
+  console.log(codeContry);
+  fetch("".concat(BASE_URL, "events.json?countryCode=").concat(codeContry, "&classificationName=music&").concat(API_KEY)).then(function (response) {
     return response.json();
   }).then(function (data) {
-    // Массив в котором получаю данные по ивентам(название, локация)
-    var array = data._embedded.events;
-    var name;
-    array.forEach(function (element) {
-      // Присваивание имени и локации
-      name = element.name;
-      placement = element.dates.timezone;
-
-      // Поиск ивентов по названию
-      // if (name.toLowerCase().includes(inputValue.toLowerCase())) {
-      //   console.log(name);
-      // } else {
-      //   return false;
-      // }
-
-      // получения массива фото(ссылки)
-      var elImg = element.images;
-
-      // Перебираю массив и получию линки на фото
-      elImg.forEach(function (element) {
-        // поиск нужного линка по ширине и высоте
-        if (element.width == 305 && element.height == 225) {
-          img = element.url;
-        }
-      });
-
-      // даты
-      dateTime = element.dates.start.localDate;
-    });
-    console.log("This is name ".concat(name));
-    console.log("This is address ".concat(placement));
-    console.log("This is img ".concat(img));
-    console.log("This is time: ".concat(dateTime));
-    var items = {
-      photo: img,
-      title: name,
-      time: placement
-    };
-    console.log((0, _template.default)(items));
-    console.log((0, _template.default)({
-      items: items
-    }));
+    return console.log(data);
+  });
+  openSelectContry();
+}
+// Функция для отрисовки страны
+function renderSelectCountry() {
+  var listContry = document.querySelector(".select__contry");
+  countries.forEach(function (contry) {
+    var createContry = document.createElement("li");
+    createContry.textContent = contry.label;
+    createContry.dataset.value = contry.value;
+    listContry.appendChild(createContry);
   });
 }
-},{"../templates/template.hbs":"templates/template.hbs"}],"main.js":[function(require,module,exports) {
+renderSelectCountry();
+},{}],"js/events.js":[function(require,module,exports) {
 "use strict";
 
-var _events = require("./js/events");
-var _template = _interopRequireDefault(require("./templates/template.hbs"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-},{"./js/events":"js/events.js","./templates/template.hbs":"templates/template.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _selectCountry = require("./selectCountry");
+document.addEventListener("DOMContentLoaded", function () {
+  var refs = {
+    inputEvent: document.querySelector("#event-searching"),
+    countrySearch: document.querySelector(".choose__input"),
+    list: document.querySelector(".hero__list"),
+    error: document.querySelector("#hero__error")
+  };
+  var BASE_URL = "https://app.ticketmaster.com/discovery/v2/";
+  var API_KEY = "apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw";
+  // Get template from HTML
+  var templateSource = document.getElementById("my-template").innerHTML;
+  var itemTemplate = Handlebars.compile(templateSource);
+  refs.inputEvent.addEventListener("input", inputSearching);
+  function inputSearching() {
+    var eventCountry = _selectCountry.codeContry;
+    console.log(eventCountry);
+    fetch("".concat(BASE_URL, "events.json?countryCode=").concat(_selectCountry.codeContry, "&classificationName=music&").concat(API_KEY)).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data);
+      try {
+        var array = data._embedded.events;
+        var itemsArray = array.map(function (element) {
+          var _element$_embedded;
+          var imgObj = element.images.find(function (img) {
+            return img.width == 305 && img.height == 225;
+          });
+          return {
+            img: imgObj ? imgObj.url : "",
+            name: element.name,
+            time: element.dates.start.localDate,
+            address: ((_element$_embedded = element._embedded) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded.venues) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded[0]) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded.city) === null || _element$_embedded === void 0 ? void 0 : _element$_embedded.name) || ""
+          };
+        });
+        var html = itemTemplate({
+          info__list: itemsArray
+        });
+        refs.list.innerHTML = html;
+      } catch (_unused) {
+        refs.error.classList.remove("hidden");
+        refs.error.classList.add("active");
+        refs.list.innerHTML = "";
+      }
+    });
+  }
+});
+},{"./selectCountry":"js/selectCountry.js"}],"main.js":[function(require,module,exports) {
+"use strict";
+
+require("./js/events");
+require("./js/selectCountry");
+},{"./js/events":"js/events.js","./js/selectCountry":"js/selectCountry.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -218,7 +489,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57769" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55695" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
