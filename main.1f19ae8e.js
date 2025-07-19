@@ -422,9 +422,6 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   var BASE_URL = "https://app.ticketmaster.com/discovery/v2/";
   var API_KEY = "apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw";
-  // Get template from HTML
-  var templateSource = document.getElementById("my-template").innerHTML;
-  var itemTemplate = Handlebars.compile(templateSource);
   refs.inputEvent.addEventListener("input", inputSearching);
   function inputSearching() {
     var eventCountry = _selectCountry.codeContry;
@@ -433,29 +430,24 @@ document.addEventListener("DOMContentLoaded", function () {
       return response.json();
     }).then(function (data) {
       console.log(data);
-      try {
-        var array = data._embedded.events;
-        var itemsArray = array.map(function (element) {
-          var _element$_embedded;
-          var imgObj = element.images.find(function (img) {
-            return img.width == 305 && img.height == 225;
-          });
-          return {
-            img: imgObj ? imgObj.url : "",
-            name: element.name,
-            time: element.dates.start.localDate,
-            address: ((_element$_embedded = element._embedded) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded.venues) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded[0]) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded.city) === null || _element$_embedded === void 0 ? void 0 : _element$_embedded.name) || ""
-          };
+      var array = data._embedded.events;
+      var dataInfo;
+      var itemsArray = array.map(function (element) {
+        var _element$_embedded;
+        var imgObj = element.images.find(function (img) {
+          return img.width == 305 && img.height == 225;
         });
-        var html = itemTemplate({
-          info__list: itemsArray
-        });
-        refs.list.innerHTML = html;
-      } catch (_unused) {
-        refs.error.classList.remove("hidden");
-        refs.error.classList.add("active");
-        refs.list.innerHTML = "";
-      }
+        dataInfo = {
+          img: imgObj ? imgObj.url : "",
+          name: element.name,
+          time: element.dates.timezone,
+          address: ((_element$_embedded = element._embedded) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded.venues) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded[0]) === null || _element$_embedded === void 0 || (_element$_embedded = _element$_embedded.city) === null || _element$_embedded === void 0 ? void 0 : _element$_embedded.name) || ""
+        };
+        for (var i = 1; i <= data.page.size; i++) {
+          refs.list.innerHTML = "\n              <ul class=\"hero__list other\">\n              <li class=\"hero__list-item\">\n              <img\n                  src=".concat(dataInfo.img, "\n                  class=\"list__item-img\"\n                />\n                <div class=\"list__item-border\"></div>\n              <h3 class=\"list__item-title eurovision\">").concat(dataInfo.name, "</h3>\n              <time datetime=\"2021-05-13\" class=\"list__item-time\">").concat(dataInfo.time, "</time>\n              <address class=\"list__item-address\">\n                <svg width=\"6\" height=\"9\">\n                  <use href=\"./icons/symbol-defs.svg#icon-location\"></use>\n                </svg>\n                ").concat(dataInfo.address, "\n              </address>\n              </li>\n              </ul>\n              ");
+          console.log("hi");
+        }
+      });
     });
   }
 });
@@ -489,7 +481,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55695" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58994" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
