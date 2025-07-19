@@ -2,9 +2,22 @@
     <header class=header>
   
   <div class=container>
-    <svg width=60 height=31 class=header__logo><use href=/Event-Booster/symbol-defs.c5b0f01c.svg#icon-logo /></svg>
-    
-    
+    <svg class=header__logo width=60 height=31><use href=/Event-Booster/symbol-defs.c5b0f01c.svg#icon-logo /></svg>
+    <h1 class=header__title>Find best events around the world</h1>
+    <div class=header__wrapper>
+      <div class="header__container-input searching">
+        <input class="header__search search__header" id=event-searching placeholder="Start searching">
+        <svg width=12 height=12 class=container__input-icon><use href=/Event-Booster/symbol-defs.c5b0f01c.svg#icon-search /></svg>
+      </div>
+      <div class="header__container-input select__contry-container">
+        <button type=button class="choose__btn search__header">
+          Choose country
+          <svg width=15 height=10 class=container__input-icon><use href=/Event-Booster/symbol-defs.c5b0f01c.svg#icon-country /></svg>
+        </button>
+
+        <ul class=select__contry hidden></ul>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -335,7 +348,6 @@
       Sorry this country hasn't any events.Pleas reload page for continue work
     </h2>
     
-    
     <ul class=hero__page-number></ul>
   </div>
 </section>
@@ -348,7 +360,7 @@
 </footer>
 
 
-    <script type=module src=/Event-Booster/Event-Booster.6c68f843.js></script>
-    <script src=https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js></script>
+    <script type=module src=/Event-Booster/Event-Booster.4d494aec.js></script>
+    
   
 
