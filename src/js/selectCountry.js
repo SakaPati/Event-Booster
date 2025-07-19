@@ -94,15 +94,15 @@ const icon = document.querySelectorAll(".container__input-icon");
 btnContry.addEventListener("click", openSelectContry);
 contryList.addEventListener("click", selectContry);
 // Функция для открытия списка страны
-export let codeContry = null;
+export let codeContry;
 function openSelectContry() {
   icon[1].classList.toggle("rotate");
   contryList.toggleAttribute("hidden");
 }
 // Функция для получения данных
 function selectContry(event) {
-  const codeContry = event.target.dataset.value;
-  const nameContry = event.target.textContent
+  codeContry = event.target.dataset.value;
+  const nameContry = event.target.textContent;
 
   fetch(
     `${BASE_URL}events.json?countryCode=${codeContry}&classificationName=music&${API_KEY}`
@@ -110,7 +110,7 @@ function selectContry(event) {
     .then((response) => response.json())
     .then((data) => data);
 
-  btnContry.textContent = nameContry
+  btnContry.textContent = nameContry;
   openSelectContry();
 }
 // Функция для отрисовки страны
