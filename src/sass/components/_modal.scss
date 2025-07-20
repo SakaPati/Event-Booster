@@ -162,14 +162,3 @@
 //   flex-wrap: wrap;
 //   max-width: 300px;
 // }
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #2f303a66;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 1px 3px 0 rgba(0, 0, 0, 0.12);
-}
