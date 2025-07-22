@@ -1,170 +1,169 @@
-// .mobile {
-//   z-index: 9999;
-// }
+.mobile {
+  z-index: 9999;
+}
 
-// .mobile__backdrop {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   backdrop-filter: blur(5px);
-//   z-index: 9999;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 40px 20px;
-// }
+.mobile__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
 
-// .mobile__window {
-//   position: relative;
-//   width: 930px;
-//   max-width: 100%;
-//   height: 900px;
-//   overflow-y: auto;
-//   scrollbar-width: none; /* Firefox */
-//   -ms-overflow-style: none;
-//   background-color: #fff2fd;
-//   border-top-left-radius: 300px;
-//   border-bottom-right-radius: 300px;
-//   padding: 20px;
-//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-//   transform: scale(1);
-//   transition: transform 0.3s ease;
-// }
+.mobile__window {
+  position: relative;
+  width: 930px;
+  max-width: 100%;
+  height: 900px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  background-color: #fff2fd;
+  border-top-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  max-height: 800px;
+}
 
-// .mobile__window {
-//   max-height: calc(100vh - 80px); /* 40px сверху и снизу */
-// }
+//   .mobile__backdrop.is-hidden .mobile__window {
+//     transform: translate(0);
+//     transform: scale(0);
+//   }
 
-// //   .mobile__backdrop.is-hidden .mobile__window {
-// //     transform: translate(0);
-// //     transform: scale(0);
-// //   }
+.mobile__btn {
+  border: none;
+  background-color: #fff2fd;
+  position: relative;
+  left: 845px;
+  margin-top: 5px;
+}
 
-// .mobile__btn {
-//   border: none;
-//   background-color: #fff2fd;
-//   position: relative;
-//   left: 845px;
-//   margin-top: 5px;
-// }
+.mobile__icon {
+  width: 30px;
+  height: 30px;
+}
 
-// .mobile__icon {
-//   width: 30px;
-//   height: 30px;
-// }
+.mobile__logo {
+  display: flex;
+  justify-self: center;
+}
 
-// .mobile__logo {
-//   display: flex;
-//   justify-self: center;
-// }
+.mobile__box1 {
+  display: flex;
+  gap: 25px;
+  margin-top: 41px;
+}
 
-// .mobile__box1 {
-//   display: flex;
-//   gap: 25px;
-//   margin-top: 41px;
-// }
+.mobile__code {
+  width: 29px;
+  height: 19px;
+  margin-right: 13px;
+}
 
-// .mobile__code {
-//   width: 29px;
-//   height: 19px;
-//   margin-right: 13px;
-// }
+.mobile__subtitle {
+  color: #dc56c5;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
 
-// .mobile__subtitle {
-//   color: #dc56c5;
-//   font-family: Montserrat;
-//   font-size: 24px;
-//   font-weight: 600;
-//   margin-bottom: 5px;
-// }
+.mobile__subtitle-price {
+  color: #cf11b0;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
 
-// .mobile__subtitle-price {
-//   color: #cf11b0;
-//   font-family: Montserrat;
-//   font-size: 24px;
-//   font-weight: 600;
-//   margin-bottom: 5px;
-//   margin-top: 20px;
-// }
+.mobile__text {
+  color: #0e0e0e;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 400;
+  max-width: 585px;
+  margin-bottom: 15px;
+}
 
-// .mobile__text {
-//   color: #0e0e0e;
-//   font-family: Montserrat;
-//   font-size: 17px;
-//   font-weight: 400;
-//   max-width: 585px;
-//   margin-bottom: 15px;
-// }
+.mobile__time {
+     color: #0e0e0e;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 400; 
+}
 
-// .mobile__time {
-//      color: #0e0e0e;
-//   font-family: Montserrat;
-//   font-size: 18px;
-//   font-weight: 400; 
-// }
+.mobile__img {
+    height: 410px;
+    width: 250px;
+    margin-left: 30px;
+}
 
-// .mobile__img {
-//     height: 410px;
-//     width: 250px;
-//     margin-left: 30px;
-// }
+.mobile__box4 {
+    display: flex;
+    gap: 25px;
+}
 
-// .mobile__box4 {
-//     display: flex;
-//     gap: 25px;
-// }
+.mobile__box5 {
+    display: flex;
+    gap:50px;
+}
 
-// .mobile__box5 {
-//     display: flex;
-//     gap:50px;
-// }
-
-// .mobile__more-btn {
-//     margin-top: 45px;
-//   display: flex;
-//   justify-self: center;
-//   width: 255px;
-//   padding: 10px 10px;
-//   background-color: #fff2fd;
+.mobile__more-btn {
+    margin-top: 45px;
+  display: flex;
+  justify-self: center;
+  width: 255px;
+  padding: 10px 10px;
+  background-color: #fff2fd;
   
 
-//   flex-shrink: 0;
-//   border-radius: 5px;
-//   border: 1px solid #4c00fe;
-//   color: #4c00fe;
-//   font-family: Montserrat;
-//   font-size: 16px;
-//   font-weight: 500; 
-// }
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #4c00fe;
+  color: #4c00fe;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500; 
 
-// .mobile__buy-btn {
-//     width: 145px;
-// height: 40px;
-// flex-shrink: 0;
-// border-radius: 5px;
-// border: none;
-// background: #4C00FE;
+  margin-bottom: 30px;
+}
 
-// color: #FFF;
-// font-family: Montserrat;
-// font-size: 16px;
-// font-style: normal;
-// font-weight: 500;
-// line-height: normal;
-// margin-top: 15px;
-// }
+.mobile__buy-btn {
+    width: 145px;
+height: 40px;
+flex-shrink: 0;
+border-radius: 5px;
+border: none;
+background: #4C00FE;
 
-// .mobile__list-price {
-//     display: flex;
-//     // flex-direction: column;
-// }
+color: #FFF;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-top: 15px;
+}
 
-// .mobile__item-price {
-//     display: flex;
-//     flex-wrap: wrap;
-//     max-width: 300px;
-// }
+.mobile__list-price {
+    display: flex;
+    // flex-direction: column;
+}
+
+.mobile__item-price {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+}
 
