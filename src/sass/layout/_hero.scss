@@ -74,6 +74,26 @@
   }
 }
 
+.hero__page-number{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: variables.$text-color;
+  margin-top: 80px;
+  .page{
+    cursor: pointer;
+    padding: 5px 12px;
+    margin-right: 5px;
+
+    
+  }
+  .current {
+    color: variables.$title-color;
+    outline: 2px solid variables.$title-color;
+    border-radius: 10px 0 10px 0;
+  }
+}
+
 @media screen and (min-width: 48rem) {
   .hero {
     .hero__list {
