@@ -1,0 +1,251 @@
+.mobile {
+  z-index: 9999;
+}
+
+.mobile__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.mobile__window {
+  position: relative;
+ width: 272px;
+height: 915px;
+  background-color: #fff2fd;
+  border-radius: 150px 0px;
+  padding: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  max-height: 800px;
+
+  @media screen and (min-width: 768px) {
+  }
+
+   @media screen and (min-width: 1200px) {
+  width: 930px;
+  height: 900px;
+  padding: 20px;
+    border-top-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  max-height: 800px;
+  }
+}
+
+.mobile__btn {
+  border: none;
+  background-color: #fff2fd;
+  position: relative;
+  left: 845px;
+  margin-top: 5px;
+}
+
+.mobile__icon {
+  width: 30px;
+  height: 30px;
+}
+
+.mobile__logo {
+  display: flex;
+  justify-self: center;
+  width: 110px;
+
+     @media screen and (min-width: 1200px) {
+  width: 132px;
+  height: 132px;
+  }
+  
+}
+
+.mobile__box1 {
+margin-top: 15px;
+text-align: center;
+
+    @media screen and (min-width: 1200px) {
+      text-align: start;
+ display: flex;
+  gap: 25px;
+  margin-top: 41px;
+  }
+}
+
+.mobile__code {
+  width: 29px;
+  height: 19px;
+  margin-right: 0px;
+  margin-bottom: 3px;
+    @media screen and (min-width: 1200px) {
+   margin-right: 13px;
+   margin-bottom: 0px;
+  }
+}
+
+.mobile__subtitle {
+  color: #dc56c5;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+
+     @media screen and (min-width: 1200px) {
+  font-size: 24px;
+   margin-bottom: 5px;
+  }
+}
+
+.mobile__subtitle-price {
+  color: #dc56c5;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 7px;
+
+   @media screen and (min-width: 1200px) {
+  font-size: 20px;
+   margin-top: 20px;
+  }
+}
+
+.mobile__text {
+  color: #0e0e0e;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 243px;
+  margin-bottom: 10px;
+  line-height: normal;
+
+    @media screen and (min-width: 1200px) {
+  font-size: 17px;
+  max-width: 585px;
+  margin-bottom: 15px;
+  }
+}
+
+.mobile__time {
+  color: #0e0e0e;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.mobile__img {
+  display: none;
+
+    @media screen and (min-width: 768px) {
+  }
+
+   @media screen and (min-width: 1200px) {
+    display: block;
+  height: 410px;
+  width: 250px;
+  margin-left: 30px;
+  }
+}
+
+.mobile__box4 {
+  display: block;
+
+    @media screen and (min-width: 1200px) {
+     display: flex;
+  gap: 25px;
+  }
+}
+
+.mobile__box5 {
+  display: flex;
+  gap: 30px;
+
+    @media screen and (min-width: 1200px) {
+     gap: 50px;
+  }
+}
+
+.mobile__more-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-self: center;
+  padding: 10px 10px;
+  background-color: #fff2fd;
+
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #4c00fe;
+  color: #4c00fe;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 1200px) {
+     width: 255px;
+     font-size: 16px;
+     margin-top: 45px;
+  }
+}
+
+.mobile__buy-btn {
+  width: 100px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: none;
+  background: #4c00fe;
+
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 10px;
+
+  @media screen and (min-width: 1200px) {
+      width: 145px;
+  height: 40px;
+  font-size: 16px;
+   margin-top: 15px;
+  }
+}
+
+.mobile__list-price {
+  display: flex;
+  // flex-direction: column;
+  justify-self: center;
+
+
+   @media screen and (min-width: 1200px) {
+     
+  }
+}
+
+.mobile__item-price {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 110px;
+  justify-content: center;
+
+   @media screen and (min-width: 1200px) {
+     justify-content: flex-start;
+      max-width: 400px;
+  }
+}
+
+.mobile__box3 {
+
+  @media screen and (min-width: 1200px) {
+      margin-left: 30px;;
+  }
+ 
+}
+

@@ -152,7 +152,7 @@ function renderPagination(page, totalPage = maxPages) {
 }
 
 // Функция для открытия списка страны
-export let codeContry = null;
+export let codeContry;
 function openSelectContry() {
   icon[1].classList.toggle("rotate");
   contryList.toggleAttribute("hidden");

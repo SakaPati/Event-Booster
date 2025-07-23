@@ -222,7 +222,7 @@ header .header__title {
   text-align: center;
   color: #dc56c5;
 }
-header .input__header {
+header .search__header {
   width: 16.88rem;
   height: 2.5rem;
   padding-left: 30px;
@@ -236,6 +236,33 @@ header .input__header {
   background: rgba(255, 255, 255, 0.2);
   border: none;
 }
+header .choose__btn {
+  position: relative;
+  z-index: 1;
+  text-align: start;
+}
+header .select__contry {
+  position: absolute;
+  top: 21px;
+  width: 270px;
+  height: 120px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  overflow-y: auto;
+  scrollbar-color: grey transparent;
+  color: white;
+  z-index: 999;
+}
+header .select__contry li {
+  font-size: 18px;
+  margin: 5px 0 5px 0;
+  cursor: pointer;
+}
+header .select__contry li:hover {
+  font-weight: 700;
+}
 header .header__container-input {
   position: relative;
 }
@@ -246,6 +273,11 @@ header .header__container-input .container__input-icon {
   position: absolute;
   top: 14px;
   left: 14.25rem;
+  transition: transform 200ms;
+}
+
+.container__input-icon.rotate {
+  transform: rotate(180deg);
 }
 
 @media screen and (min-width: 768px) {
@@ -340,6 +372,17 @@ header .header__container-input .container__input-icon {
 }
 .hero .hero__list .tablet-v {
   display: none;
+}
+.hero .error {
+  color: #e11818;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.hero .hidden {
+  display: none;
+}
+.hero .active {
+  display: block;
 }
 
 @media screen and (min-width: 48rem) {
