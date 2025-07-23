@@ -1,17 +1,17 @@
 export const countries = [
-  { value: "AD", label: "Andorra" },
-  { value: "AI", label: "Anguilla" },
-  { value: "AR", label: "Argentina" },
-  { value: "AU", label: "Australia" },
-  { value: "AT", label: "Austria" },
-  { value: "AZ", label: "Azerbaijan" },
-  { value: "BS", label: "Bahamas" },
-  { value: "BH", label: "Bahrain" },
-  { value: "BB", label: "Barbados" },
-  { value: "BE", label: "Belgium" },
-  { value: "BM", label: "Bermuda" },
-  { value: "BR", label: "Brazil" },
-  { value: "BG", label: "Bulgaria" },
+  // { value: "AD", label: "Andorra" },
+  // { value: "AI", label: "Anguilla" },
+  // { value: "AR", label: "Argentina" },
+  // { value: "AU", label: "Australia" },
+  // { value: "AT", label: "Austria" },
+  // { value: "AZ", label: "Azerbaijan" },
+  // { value: "BS", label: "Bahamas" },
+  // { value: "BH", label: "Bahrain" },
+  // { value: "BB", label: "Barbados" },
+  // { value: "BE", label: "Belgium" },
+  // { value: "BM", label: "Bermuda" },
+  // { value: "BR", label: "Brazil" },
+  // { value: "BG", label: "Bulgaria" },
   { value: "CA", label: "Canada" },
   { value: "CL", label: "Chile" },
   { value: "CN", label: "China" },
@@ -90,9 +90,67 @@ const API_KEY = "apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw";
 const btnContry = document.querySelector(".choose__btn");
 const contryList = document.querySelector(".select__contry");
 const icon = document.querySelectorAll(".container__input-icon");
+const pagesUl = document.querySelector(".hero__page-number");
+
+let maxPages = 0;
 
 btnContry.addEventListener("click", openSelectContry);
 contryList.addEventListener("click", selectContry);
+pagesUl.addEventListener("click", nextPage);
+
+function nextPage(event) {
+  const targetPage = event.target;
+  const page = Number(targetPage.textContent);
+  const currentEl = document.querySelector(".current");
+  const currentPage = Number(currentEl.textContent);
+
+  if (!isNaN(page) && page !== currentPage) {
+    currentEl.classList.remove("current");
+    targetPage.classList.add("current");
+    renderPagination(page);
+  }
+
+  fetch(
+    `${BASE_URL}events.json?countryCode=${codeContry}&classificationName=music&${API_KEY}&page=${page}`
+  )
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+}
+
+
+function renderPagination(page, totalPage = maxPages) {
+  pagesUl.innerHTML = "";
+
+  const firstLi = document.createElement("li");
+  firstLi.textContent = 1;
+  firstLi.className = "page";
+  pagesUl.appendChild(firstLi);
+
+  for (let i = page; i <= page + 4; i++) {
+    const pages = document.createElement("li");
+    pages.textContent = i;
+    pages.className = "page";
+    if (i === page) pages.classList.add("current");
+    if (i !== 1 && i <= totalPage) {
+      pagesUl.appendChild(pages);
+    } else if (i === 1) {
+      pagesUl.children[0].classList.add("current");
+    }
+  }
+
+  if (page < totalPage - 4) {
+    const dots = document.createElement("li");
+    dots.textContent = "...";
+    dots.className = "dots";
+    pagesUl.appendChild(dots);
+
+    const lastLi = document.createElement("li");
+    lastLi.textContent = totalPage;
+    lastLi.className = "page";
+    pagesUl.appendChild(lastLi);
+  }
+}
+
 // Функция для открытия списка страны
 export let codeContry;
 function openSelectContry() {
@@ -108,7 +166,11 @@ function selectContry(event) {
     `${BASE_URL}events.json?countryCode=${codeContry}&classificationName=music&${API_KEY}`
   )
     .then((response) => response.json())
-    .then((data) => data);
+    .then((data) => data.page.totalPages)
+    .then((pagesContry) => {
+      maxPages = pagesContry;
+      renderPagination(1);
+    });
 
   btnContry.textContent = nameContry;
   openSelectContry();
