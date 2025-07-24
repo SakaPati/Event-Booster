@@ -4,24 +4,20 @@ header {
   padding-top: 1.4375rem;
   padding-bottom: 3.25rem;
   background: url("../img/background-mobile.png") no-repeat center;
-  //   .header__bg-shape {
-  //     position: absolute;
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     width: 107px;
-  //     height: 90px;
-  //     top: 0px;
-  //     left: 25%;
-  //     border-radius: 100%;
-  //     background: linear-gradient(
-  //       136deg,
-  //       #c4c4c4 0%,
-  //       rgba(196, 196, 196, 0) 100%
-  //     );
-  //     backdrop-filter: blur(30px);
-  //     z-index: 0;
-  //   }
+    .header__bg-shape {
+  position: absolute;
+  width: 150;
+  height: 150;
+  top: 0;
+  z-index: 1;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.459);
+  backdrop-filter: blur(10px);
+  border-bottom-right-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    }
   .header__logo {
     position: relative;
     z-index: 1;
@@ -96,7 +92,21 @@ header {
 
 .container__input-icon.rotate {
   transform: rotate(180deg);
+} 
+@media  screen and (min-width: 60px) {
+    header {
+    background: url("../img/background-tablet.png") no-repeat center;
+
+    padding-top: 2.5rem;
+    padding-bottom: 7.6875rem;
+        .header__bg-shape  {
+      width: 90;
+      height: 90;
+      
+    }
 }
+}
+
 @media screen and (min-width: 768px) {
   header {
     background: url("../img/background-tablet.png") no-repeat center;
@@ -106,6 +116,11 @@ header {
     .header__logo {
       width: 6.25rem;
       height: 3.125rem;
+    }
+    .header__bg-shape  {
+      width: 120;
+      height: 120;
+      
     }
     .header__title {
       font-size: 1.88rem;
@@ -127,6 +142,11 @@ header {
     .header__logo {
       width: 8.5625rem;
       height: 4.1875rem;
+    }
+        .header__bg-shape  {
+      width: 150;
+      height: 150;
+      
     }
     .header__title {
       font-size: 3.12rem;
