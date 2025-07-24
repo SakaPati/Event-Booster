@@ -11,7 +11,7 @@ header {
   top: 0;
   z-index: 1;
   opacity: 1;
-  background: rgba(0, 0, 0, 0.125);
+  background: rgba(0, 0, 0, 0.475);
   backdrop-filter: blur(10px);
   border-bottom-right-radius: 100%;
   display: flex;
@@ -93,7 +93,7 @@ header {
 .container__input-icon.rotate {
   transform: rotate(180deg);
 } 
-@media  screen and (min-width: 360px) {
+@media  screen and (min-width: 60px) {
     header {
     background: url("../img/background-tablet.png") no-repeat center;
 
@@ -144,8 +144,8 @@ header {
       height: 4.1875rem;
     }
         .header__bg-shape  {
-      width: 90;
-      height: 90;
+      width: 150;
+      height: 150;
       
     }
     .header__title {
