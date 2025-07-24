@@ -1,5 +1,3 @@
-import { countries } from "./selectCountry";
-import { selectContry } from "./selectCountry";
 import { codeContry } from "./selectCountry";
 import markUp from "../template/template.hbs";
 
@@ -15,9 +13,7 @@ const API_KEY = "apikey=L5MVL2ixI21Ju9UXQGF2ATKeC7WJ1iTw";
 
 refs.inputEvent.addEventListener("input", inputSearching);
 
-function inputSearching() {
-  const eventCountry = codeContry;
-
+export function inputSearching() {
   fetch(
     `${BASE_URL}events.json?countryCode=${codeContry}&classificationName=music&${API_KEY}`
   )
