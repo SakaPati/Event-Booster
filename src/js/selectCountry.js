@@ -1,17 +1,19 @@
+import markUp from "../template/template.hbs";
+import { inputSearching } from "./events";
 export const countries = [
-  // { value: "AD", label: "Andorra" },
-  // { value: "AI", label: "Anguilla" },
-  // { value: "AR", label: "Argentina" },
-  // { value: "AU", label: "Australia" },
-  // { value: "AT", label: "Austria" },
-  // { value: "AZ", label: "Azerbaijan" },
-  // { value: "BS", label: "Bahamas" },
-  // { value: "BH", label: "Bahrain" },
-  // { value: "BB", label: "Barbados" },
-  // { value: "BE", label: "Belgium" },
-  // { value: "BM", label: "Bermuda" },
-  // { value: "BR", label: "Brazil" },
-  // { value: "BG", label: "Bulgaria" },
+  { value: "AD", label: "Andorra" },
+  { value: "AI", label: "Anguilla" },
+  { value: "AR", label: "Argentina" },
+  { value: "AU", label: "Australia" },
+  { value: "AT", label: "Austria" },
+  { value: "AZ", label: "Azerbaijan" },
+  { value: "BS", label: "Bahamas" },
+  { value: "BH", label: "Bahrain" },
+  { value: "BB", label: "Barbados" },
+  { value: "BE", label: "Belgium" },
+  { value: "BM", label: "Bermuda" },
+  { value: "BR", label: "Brazil" },
+  { value: "BG", label: "Bulgaria" },
   { value: "CA", label: "Canada" },
   { value: "CL", label: "Chile" },
   { value: "CN", label: "China" },
@@ -91,6 +93,7 @@ const btnContry = document.querySelector(".choose__btn");
 const contryList = document.querySelector(".select__contry");
 const icon = document.querySelectorAll(".container__input-icon");
 const pagesUl = document.querySelector(".hero__page-number");
+const list = document.querySelector(".hero__list");
 
 let maxPages = 0;
 
@@ -114,9 +117,11 @@ function nextPage(event) {
     `${BASE_URL}events.json?countryCode=${codeContry}&classificationName=music&${API_KEY}&page=${page}`
   )
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then(() => {
+      list.innerHTML = "";
+      inputSearching();
+    });
 }
-
 
 function renderPagination(page, totalPage = maxPages) {
   pagesUl.innerHTML = "";
