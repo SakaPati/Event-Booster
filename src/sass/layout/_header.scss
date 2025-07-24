@@ -95,7 +95,6 @@ header {
 } 
 
 @media  screen and (min-width: 60px) {
-
     header {
     background: url("../img/background-tablet.png") no-repeat center;
 
@@ -106,7 +105,8 @@ header {
       height: 90;
       
     }
-
+  }
+}
 
 @media screen and (min-width: 768px) {
   header {
