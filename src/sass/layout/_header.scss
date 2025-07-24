@@ -93,6 +93,7 @@ header {
 .container__input-icon.rotate {
   transform: rotate(180deg);
 } 
+
 @media  screen and (min-width: 60px) {
     header {
     background: url("../img/background-tablet.png") no-repeat center;
@@ -104,7 +105,7 @@ header {
       height: 90;
       
     }
-}
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -144,8 +145,10 @@ header {
       height: 4.1875rem;
     }
         .header__bg-shape  {
+
       width: 150;
       height: 150;
+
       
     }
     .header__title {
