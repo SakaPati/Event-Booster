@@ -1,7 +1,16 @@
 .mobile {
   z-index: 9999;
 }
-
+.is-hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.is-open {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
 .mobile__backdrop {
   position: fixed;
   top: 0;
@@ -69,11 +78,9 @@
   @media screen and (min-width: 768px) {
     width: 90px;
     height: 90px;
-    margin-left: 40px;
   }
 
   @media screen and (min-width: 1200px) {
-    margin-left: 0px;
     width: 132px;
     height: 132px;
   }

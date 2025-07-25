@@ -212,6 +212,21 @@ header {
   padding-bottom: 3.25rem;
   background: url("../img/background-mobile.png") no-repeat center;
 }
+header .header__bg-shape {
+  position: absolute;
+  width: 150;
+  height: 150;
+  top: 0;
+  z-index: 1;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.475);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-bottom-right-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 header .header__logo {
   position: relative;
   z-index: 1;
@@ -284,6 +299,17 @@ header .header__container-input .container__input-icon {
   transform: rotate(180deg);
 }
 
+@media screen and (min-width: 60px) {
+  header {
+    background: url("../img/background-tablet.png") no-repeat center;
+    padding-top: 2.5rem;
+    padding-bottom: 7.6875rem;
+  }
+  header .header__bg-shape {
+    width: 90;
+    height: 90;
+  }
+}
 @media screen and (min-width: 768px) {
   header {
     background: url("../img/background-tablet.png") no-repeat center;
@@ -293,6 +319,10 @@ header .header__container-input .container__input-icon {
   header .header__logo {
     width: 6.25rem;
     height: 3.125rem;
+  }
+  header .header__bg-shape {
+    width: 120;
+    height: 120;
   }
   header .header__title {
     font-size: 1.88rem;
@@ -314,6 +344,10 @@ header .header__container-input .container__input-icon {
   header .header__logo {
     width: 8.5625rem;
     height: 4.1875rem;
+  }
+  header .header__bg-shape {
+    width: 150;
+    height: 150;
   }
   header .header__title {
     font-size: 3.12rem;
@@ -483,6 +517,18 @@ footer > .container {
   z-index: 9999;
 }
 
+.is-hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.is-open {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
 .mobile__backdrop {
   position: fixed;
   top: 0;
@@ -556,12 +602,10 @@ footer > .container {
   .mobile__logo {
     width: 90px;
     height: 90px;
-    margin-left: 40px;
   }
 }
 @media screen and (min-width: 1200px) {
   .mobile__logo {
-    margin-left: 0px;
     width: 132px;
     height: 132px;
   }
