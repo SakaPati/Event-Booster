@@ -1,43 +1,38 @@
-<div class="mobile">
+{{#each modal__info}}
   <div class="mobile__backdrop">
     <div class="mobile__window">
-      <button class="mobile__btn" type="button" data-mobile-close>
-        <svg class="mobile__icon">
-          <use href="./icons/symbol-defs(1).svg#icon-close-desktop"></use>
-        </svg>
-      </button>
-      <img src="./img/img-logo.png" alt="" class="mobile__logo" />
+      <img src={{logo}} alt="" class="mobile__logo" />
 
       <div class="mobile__box1">
         <div class="mobile__box2">
-          <img src="./img/pic.png" alt="" class="mobile__img" />
+          <img src={{logo}} alt="" class="mobile__img" />
         </div>
         <div class="mobile__box3">
           <ul class="mobile__list-info">
             <li class="mobile__item">
               <h4 class="mobile__subtitle">INFO</h4>
               <p class="mobile__text">
-                Atlas Weekend is the largest music festival in Ukraine.More than
-                200 artists will create a proper music festival atmosphere on 10
-                stages
+                This event may include immersive elements such as seat haptics,
+                movement sensations, flashing lights, intense lighting, visual
+                effects, loud noises.
               </p>
             </li>
             <li class="mobile__item">
               <h4 class="mobile__subtitle">WHEN</h4>
               <div class="mobile__box4">
-                <p class="mobile__time">2021-06-09</p>
-                <p class="mobile__text">20:00 (Kyiv/Ukraine)</p>
+                <p class="mobile__time">{{data}}</p>
+                <p class="mobile__text">{{datatime}}</p>
               </div>
             </li>
 
             <div class="mobile__box5">
               <li class="mobile__item">
                 <h4 class="mobile__subtitle">WHERE</h4>
-                <p class="mobile__text">Kyiv, Ukraine VDNH</p>
+                <p class="mobile__text">{{address}}</p>
               </li>
               <li class="mobile__item">
                 <h4 class="mobile__subtitle">WHO</h4>
-                <p class="mobile__text">The Black Eyed Peas</p>
+                <p class="mobile__text">{{nameBand}}</p>
               </li>
             </div>
           </ul>
@@ -48,20 +43,21 @@
               <svg class="mobile__code">
                 <use href="./icons/code.svg"></use>
               </svg>
-              <p class="mobile__price">Standart 300-500 UAH</p>
+              <p class="mobile__price">Standart 50$</p>
               <button class="mobile__buy-btn">BUY TICKETS</button>
             </li>
             <li class="mobile__item-price">
               <svg class="mobile__code">
                 <use href="./icons/code.svg"></use>
               </svg>
-              <p class="mobile__price">VIP 1000-1500 UAH</p>
+              <p class="mobile__price">VIP 200$</p>
               <button class="mobile__buy-btn">BUY TICKETS</button>
             </li>
           </ul>
         </div>
       </div>
-      <button class="mobile__more-btn">MORE FROM THIS AUTHOR</button>
     </div>
+
   </div>
-</div>
+
+{{/each}}

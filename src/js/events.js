@@ -1,6 +1,5 @@
 import { codeContry } from "./selectCountry";
 import markUp from "../template/template.hbs";
-
 const refs = {
   inputEvent: document.querySelector("#event-searching"),
   countrySearch: document.querySelector(".choose__input"),
@@ -22,6 +21,7 @@ export function inputSearching() {
       console.log(data);
       try {
         const array = data._embedded.events;
+
         const infoList = array.map((element) => {
           const imgObj = element.images.find(
             (img) => img.width == 305 && img.height == 225
@@ -34,6 +34,7 @@ export function inputSearching() {
             address: element._embedded?.venues?.[0]?.city?.name || "",
           };
         });
+
         const html = markUp({ info__list: infoList });
         refs.list.innerHTML = html;
       } catch {
