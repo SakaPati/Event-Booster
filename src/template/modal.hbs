@@ -1,63 +1,58 @@
-{{#each modal__info}}
-  <div class="mobile__backdrop">
-    <div class="mobile__window">
-      <img src={{logo}} alt="" class="mobile__logo" />
+<button class="mobile__btn" type="button" data-mobile-close>
+  <svg class="mobile__icon">
+    <use href="./icons/symbol-defs(1).svg#icon-close-desktop"></use>
+  </svg>
+</button>
+<img src="{{logo}}" alt="" class="mobile__logo" />
 
-      <div class="mobile__box1">
-        <div class="mobile__box2">
-          <img src={{logo}} alt="" class="mobile__img" />
-        </div>
-        <div class="mobile__box3">
-          <ul class="mobile__list-info">
-            <li class="mobile__item">
-              <h4 class="mobile__subtitle">INFO</h4>
-              <p class="mobile__text">
-                This event may include immersive elements such as seat haptics,
-                movement sensations, flashing lights, intense lighting, visual
-                effects, loud noises.
-              </p>
-            </li>
-            <li class="mobile__item">
-              <h4 class="mobile__subtitle">WHEN</h4>
-              <div class="mobile__box4">
-                <p class="mobile__time">{{data}}</p>
-                <p class="mobile__text">{{datatime}}</p>
-              </div>
-            </li>
-
-            <div class="mobile__box5">
-              <li class="mobile__item">
-                <h4 class="mobile__subtitle">WHERE</h4>
-                <p class="mobile__text">{{address}}</p>
-              </li>
-              <li class="mobile__item">
-                <h4 class="mobile__subtitle">WHO</h4>
-                <p class="mobile__text">{{nameBand}}</p>
-              </li>
-            </div>
-          </ul>
-
-          <h3 class="mobile__subtitle-price">PRICES</h3>
-          <ul class="mobile__list-price">
-            <li class="mobile__item-price">
-              <svg class="mobile__code">
-                <use href="./icons/code.svg"></use>
-              </svg>
-              <p class="mobile__price">Standart 50$</p>
-              <button class="mobile__buy-btn">BUY TICKETS</button>
-            </li>
-            <li class="mobile__item-price">
-              <svg class="mobile__code">
-                <use href="./icons/code.svg"></use>
-              </svg>
-              <p class="mobile__price">VIP 200$</p>
-              <button class="mobile__buy-btn">BUY TICKETS</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+<div class="mobile__box1">
+  <div class="mobile__box2">
+    <img src="{{logo}}" alt="" class="mobile__img" />
   </div>
-
-{{/each}}
+  <div class="mobile__box3">
+    <ul class="mobile__list-info">
+      <li class="mobile__item">
+        <h4 class="mobile__subtitle">INFO</h4>
+        <p class="mobile__text">This event may include immersive elements such
+          as seat haptics, movement sensations, flashing lights, intense
+          lighting, visual effects, loud noises, and atmospheric simulations.
+          Such elements may aggravate certain medical or physical conditions</p>
+      </li>
+      <li class="mobile__item">
+        <h4 class="mobile__subtitle">WHEN</h4>
+        <div class="mobile__box4">
+          <p class="mobile__time">{{data}}</p>
+          <p class="mobile__text">{{datatime}}</p>
+        </div>
+      </li>
+      <div class="mobile__box5">
+        <li class="mobile__item">
+          <h4 class="mobile__subtitle">WHERE</h4>
+          <p class="mobile__text">{{address}}</p>
+        </li>
+        <li class="mobile__item">
+          <h4 class="mobile__subtitle">WHO</h4>
+          <p class="mobile__text">{{nameBand}}</p>
+        </li>
+      </div>
+    </ul>
+    <h3 class="mobile__subtitle-price">PRICES</h3>
+    <ul class="mobile__list-price">
+      <li class="mobile__item-price">
+        <svg class="mobile__code">
+          <use href="./icons/code.svg"></use>
+        </svg>
+        <p class="mobile__price">Standart 50$</p>
+        <button class="mobile__buy-btn">BUY TICKETS</button>
+      </li>
+      <li class="mobile__item-price">
+        <svg class="mobile__code">
+          <use href="../icons/code.svg"></use>
+        </svg>
+        <p class="mobile__price">VIP 200$</p>
+        <button class="mobile__buy-btn">BUY TICKETS</button>
+      </li>
+    </ul>
+  </div>
+</div>
+<button class="mobile__more-btn">MORE FROM THIS AUTHOR</button>

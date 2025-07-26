@@ -375,6 +375,7 @@ header .header__container-input .container__input-icon {
 .hero .hero__list .hero__list-item .list__item-img {
   position: relative;
   z-index: 1;
+  border-radius: 50px 0;
 }
 .hero .hero__list .hero__list-item .list__item-border {
   position: absolute;
@@ -513,20 +514,8 @@ footer > .container {
     font-size: 1rem;
   }
 }
-.mobile {
-  z-index: 9999;
-}
-
-.is-hidden {
+.mobile.is-hidden {
   display: none;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.is-open {
-  display: block;
-  visibility: visible;
-  opacity: 1;
 }
 
 .mobile__backdrop {
