@@ -18,6 +18,7 @@
       .list__item-img {
         position: relative;
         z-index: 1;
+        border-radius: 50px 0;
       }
       .list__item-border {
         position: absolute;
@@ -74,18 +75,16 @@
   }
 }
 
-.hero__page-number{
+.hero__page-number {
   display: flex;
   align-items: center;
   justify-content: center;
   color: variables.$text-color;
   margin-top: 80px;
-  .page{
+  .page {
     cursor: pointer;
     padding: 5px 12px;
     margin-right: 5px;
-
-    
   }
   .current {
     color: variables.$title-color;

@@ -1,16 +1,7 @@
-.mobile {
-  z-index: 9999;
-}
-.is-hidden {
+.mobile.is-hidden {
   display: none;
-  visibility: hidden;
-  opacity: 0;
 }
-.is-open {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-}
+
 .mobile__backdrop {
   position: fixed;
   top: 0;
